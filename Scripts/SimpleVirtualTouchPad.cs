@@ -73,13 +73,13 @@ namespace Isshi777
         private bool updateRangeOnly;
 
         /// <summary>
-        /// クリックを許容する範囲の半径
+        /// クリック判定をする範囲の半径
         /// </summary>
         [SerializeField]
         private float clickRadius;
 
         /// <summary>
-        /// 長押し判定を許容する範囲の半径
+        /// 長押し判定をする範囲の半径
         /// </summary>
         [SerializeField]
         private float longPressRadius;
