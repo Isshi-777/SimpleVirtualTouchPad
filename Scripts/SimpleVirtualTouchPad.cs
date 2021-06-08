@@ -149,16 +149,18 @@ namespace Isshi777
 
         private void Update()
         {
-            if (this.isUpdate)
+            if (!this.isUpdate)
             {
-                this.timer += Time.deltaTime;
+                return;
+            }
 
-                // 長押しイベント呼び出し(OnDragは座標移動がないと呼ばれないため長押しはこちらに書く)
-                if (this.timer >= this.longPressDuration && !this.cantCallLongPress)
-                {
-                    this.OnLongPressEvent.Invoke();
-                    this.cantCallLongPress = true;
-                }
+            this.timer += Time.deltaTime;
+
+            // 長押しイベント呼び出し(OnDragは座標移動がないと呼ばれないため長押しはこちらに書く)
+            if (this.timer >= this.longPressDuration && !this.cantCallLongPress)
+            {
+                this.OnLongPressEvent.Invoke();
+                this.cantCallLongPress = true;
             }
         }
 
