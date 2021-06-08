@@ -194,11 +194,6 @@ namespace Isshi777
             this.OnFlickEvent = null;
         }
 
-        private bool IsInRange(PointerEventData data)
-        {
-            return RectTransformUtility.RectangleContainsScreenPoint(this.rectTransfirm, data.position, data.pressEventCamera);
-        }
-
         public void OnPointerDown(PointerEventData data)
         {
             this.isUpdate = true;
@@ -217,7 +212,7 @@ namespace Isshi777
             }
 
             // 範囲内のみ更新可能の設定で範囲外の場合
-            if (this.updateRangeOnly && !this.IsInRange(data))
+            if (this.updateRangeOnly && !RectTransformUtility.RectangleContainsScreenPoint(this.rectTransfirm, data.position, data.pressEventCamera))
             {
                 return;
             }
@@ -249,7 +244,7 @@ namespace Isshi777
             }
 
             // 範囲内のみ更新可能の設定で範囲外の場合
-            if (this.updateRangeOnly && !this.IsInRange(data))
+            if (this.updateRangeOnly && !RectTransformUtility.RectangleContainsScreenPoint(this.rectTransfirm, data.position, data.pressEventCamera))
             {
                 return;
             }
